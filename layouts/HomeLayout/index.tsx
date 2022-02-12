@@ -5,7 +5,7 @@ import React from 'react'
 
 function HomeLayout({ children }: any) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
         <title>Aadarsh Srivastava</title>
         <link rel="icon" href="/favicon.ico" />
