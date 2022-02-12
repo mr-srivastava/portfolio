@@ -12,7 +12,7 @@ const Header = () => {
         </div>
         <ul className="nav-links flex space-x-4">
           {headerNavLinks.map((l) => (
-            <Link key={l.href} className="cursor-pointer">
+            <Link key={l.href} className="cursor-pointer" href={l.href}>
               {l.title}
             </Link>
           ))}
