@@ -1,7 +1,7 @@
-import Footer from '@Components/Footer'
-import Header from '@Components/Header'
-import Head from 'next/head'
-import React from 'react'
+import Footer from '@Components/Footer';
+import Header from '@Components/Header';
+import Head from 'next/head';
+import React from 'react';
 
 function HomeLayout({ children }: any) {
   return (
@@ -10,7 +10,7 @@ function HomeLayout({ children }: any) {
         <title>Aadarsh Srivastava</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="flex w-full items-center justify-center px-20 py-10">
+      <header className="flex w-full max-w-6xl items-center justify-center">
         <Header />
       </header>
 
@@ -22,7 +22,7 @@ function HomeLayout({ children }: any) {
         <Footer />
       </footer>
     </div>
-  )
+  );
 }
 
-export default HomeLayout
+export default HomeLayout;
