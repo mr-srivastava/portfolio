@@ -1,20 +1,21 @@
-import Link from 'next/link'
-import React from 'react'
-import siteMetadata from '@Data/siteMetadata'
+import Link from 'next/link';
+import SocialIcon from '@Components/SocialIcon';
+import React from 'react';
+import siteMetadata from '@Data/siteMetadata';
 
 const Footer = () => {
   return (
-    <div className="flex flex-col">
-      <div>
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="ml-2 h-4" />
-        </a>
+    <div className="flex flex-col space-y-2">
+      <div className="flex justify-between">
+        <SocialIcon
+          kind="mail"
+          href={`mailto:${siteMetadata.email}`}
+          size={6}
+        />
+        <SocialIcon kind="github" href={siteMetadata.github} size={6} />
+        <SocialIcon kind="instagram" href={siteMetadata.instagram} size={6} />
+        <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
+        <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
       </div>
       <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
         <div>{siteMetadata.author}</div>
@@ -24,7 +25,7 @@ const Footer = () => {
         <Link href="/">{siteMetadata.title}</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
