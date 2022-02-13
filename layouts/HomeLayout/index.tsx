@@ -8,7 +8,7 @@ function HomeLayout({ children }: any) {
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Head>
         <title>Aadarsh Srivastava</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <header className="flex w-full max-w-6xl items-center justify-center">
         <Header />
