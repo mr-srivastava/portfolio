@@ -1,37 +1,50 @@
-import { useAnimation, motion } from 'framer-motion'
-import React, { useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-
-const AuthorCardVariants = {
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 1, ease: 'easeOut', delay: 0.7 },
-  },
-  hidden: { y: 60, opacity: 0 },
-}
-
+import React from 'react';
+import Image from 'next/image';
+import CoderImg from './coder.svg';
+import Link from 'next/link';
 const AuthorCard = () => {
-  const controls = useAnimation()
-  const [ref, inView] = useInView()
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    }
-  }, [controls, inView])
-
   return (
-    <motion.div
-      ref={ref}
-      animate={controls}
-      initial="hidden"
-      className="text-6xl font-bold"
-      variants={AuthorCardVariants}
-    >
-      Always in <span className="text-blue-600">BETA</span>
-    </motion.div>
-  )
-}
+    <div className="my-2 grid rounded-lg px-4 py-4 shadow-lg md:grid-cols-2">
+      <Image className="flex-1" src={CoderImg} width={600} height={400} />
+      <div className="flex-initial md:ml-6">
+        <div className="text-left text-gray-800">
+          <div>
+            <h1 className="mt-6 text-3xl font-extrabold lg:mt-0">
+              &lt;tag&gt;
+            </h1>
+          </div>
+          <div>
+            <div className="p-2.5 lg:ml-12">
+              <div className="text-3xl font-bold md:text-2xl">
+                I'm always in <span className="text-blue-600">BETA.</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="text-3xl font-extrabold">&lt;/tag&gt;</h1>
+          </div>
+        </div>
+        <div className="mt-4 text-left text-lg">
+          I'm a full-stack developer and an data analytics enthusiast.
+          Everything around tech intrigues me and everything with aesthics
+          please me.
+        </div>
+        <div>
+          <Link href="/projects">
+            <div
+              style={{
+                width: 'fit-content',
+                userSelect: 'none',
+              }}
+              className="btn mt-12 transform rounded-full bg-blue-600 py-2 px-4 font-bold text-white shadow-sm transition duration-300 hover:scale-105 hover:bg-blue-700"
+            >
+              Project's showcase
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default AuthorCard
+export default AuthorCard;
