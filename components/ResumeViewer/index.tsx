@@ -31,7 +31,13 @@ const ResumeViewer = () => {
         >
           <div className="flex w-full items-center justify-between bg-gray-800 px-3 py-3 text-white">
             <p className="text-2xl">Resume</p>
-            <button className="rounded bg-blue-600 px-2 py-2">Download</button>
+            <a
+              className="rounded bg-blue-600 px-2 py-2 hover:bg-blue-500"
+              href="./resume.pdf"
+              download
+            >
+              Download
+            </a>
           </div>
           <div>
             <Document
