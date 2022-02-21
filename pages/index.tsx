@@ -1,13 +1,12 @@
-import AuthorCard from '@Components/AuthorCard'
-import HomeLayout from '@Layouts/HomeLayout'
-import Head from 'next/head'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import AuthorCard from '@Components/AuthorCard';
+import GithubStats from '@Components/GithubStats';
+import HomeLayout from '@Layouts/HomeLayout';
 
 export default function Home() {
   return (
-    <HomeLayout>
+    <HomeLayout centerChildren={false}>
       <AuthorCard />
+      <GithubStats />
     </HomeLayout>
-  )
+  );
 }

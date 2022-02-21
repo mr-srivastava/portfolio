@@ -1,39 +1,49 @@
-import { useAnimation, motion } from 'framer-motion';
-import Image from 'next/image';
 import React from 'react';
-import Typist from 'react-typist';
+import Image from 'next/image';
 import CoderImg from './coder.svg';
-
-const AuthorCardVariants = {
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: 'easeOut',
-      delay: 0.7,
-    },
-  },
-  hidden: { y: 60, opacity: 0 },
-};
-
+import Link from 'next/link';
 const AuthorCard = () => {
   return (
-    <motion.div
-      animate="visible"
-      initial="hidden"
-      className="item-center grid w-full rounded-xl px-10 py-10 shadow-xl sm:grid-cols-2 "
-      variants={AuthorCardVariants}
-    >
-      <div className="w-1/2 sm:w-full">
-        <Image src={CoderImg} width={400} height={400} />
+    <div className="my-2 grid rounded-lg px-4 py-4 shadow-lg md:grid-cols-2">
+      <Image className="flex-1" src={CoderImg} width={600} height={400} />
+      <div className="flex-initial md:ml-6">
+        <div className="text-left text-gray-800">
+          <div>
+            <h1 className="mt-6 text-3xl font-extrabold lg:mt-0">
+              &lt;tag&gt;
+            </h1>
+          </div>
+          <div>
+            <div className="p-2.5 lg:ml-12">
+              <div className="text-3xl font-bold md:text-2xl">
+                I'm always in <span className="text-blue-600">BETA.</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 className="text-3xl font-extrabold">&lt;/tag&gt;</h1>
+          </div>
+        </div>
+        <div className="mt-4 text-left text-lg">
+          I'm a full-stack developer and an data analytics enthusiast.
+          Everything around tech intrigues me and everything with aesthics
+          please me.
+        </div>
+        <div>
+          <Link href="/projects">
+            <div
+              style={{
+                width: 'fit-content',
+                userSelect: 'none',
+              }}
+              className="btn mt-12 transform rounded-full bg-blue-600 py-2 px-4 font-bold text-white shadow-sm transition duration-300 hover:scale-105 hover:bg-blue-700"
+            >
+              Project's showcase
+            </div>
+          </Link>
+        </div>
       </div>
-      <div className="text-4xl md:text-5xl ">
-        <Typist startDelay={1000} avgTypingDelay={100}>
-          Hi, I'm <span className="text-blue-600">Aadarsh.</span>
-        </Typist>
-      </div>
-    </motion.div>
+    </div>
   );
 };
 

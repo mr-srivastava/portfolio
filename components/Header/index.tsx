@@ -32,7 +32,7 @@ const Header = () => {
     cycleOpen();
   }
   return (
-    <nav className="w-full shadow-md">
+    <nav className="mb-10 w-full max-w-6xl">
       <div className="header-wrapper flex items-center justify-between">
         <a className="cursor-pointer px-2 py-3" href="/">
           <svg
@@ -54,7 +54,7 @@ const Header = () => {
           {headerNavLinks.map((l) => (
             <Link
               key={l.href}
-              className="cursor-pointer px-4 py-3 hover:text-blue-600"
+              className="cursor-pointer px-4 py-3 hover:font-medium hover:text-blue-600"
               href={l.href}
             >
               {l.title}
