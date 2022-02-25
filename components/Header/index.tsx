@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from '../Link';
 import headerNavLinks from '@Data/headerNavLinks';
 import { AnimatePresence, motion, useCycle } from 'framer-motion';
