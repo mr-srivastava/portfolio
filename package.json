@@ -5,7 +5,8 @@
     "copy-worker": "node ./scripts/copy-worker.js",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "framer-motion": "^6.2.6",
@@ -21,6 +22,8 @@
     "@types/react": "17.0.38",
     "@types/react-pdf": "^5.0.9",
     "autoprefixer": "^10.4.0",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.1.1",

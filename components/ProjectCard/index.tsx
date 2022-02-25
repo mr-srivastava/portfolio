@@ -11,10 +11,10 @@ const ProjectCard = (props: any) => {
       <div className="text-l py-2">{project.description}</div>
       <div>
         <a className="px-2" href={project.githubUrl}>
-          <Image src={Github} className="" />
+          <Image src={Github} className="" alt="Github icon" />
         </a>
         <a className="px-2" href={project.projectUrl}>
-          <Image src={Globe} className="" />
+          <Image src={Globe} className="" alt="Globe icon" />
         </a>
       </div>
     </div>

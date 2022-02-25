@@ -50,6 +50,7 @@ const SocialIcon = ({
         <span className="sr-only">{kind}</span>
         <Image
           src={SocialSvg}
+          alt="Social SVG"
           className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
         />
       </a>

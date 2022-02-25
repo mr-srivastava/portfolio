@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <nav className="mb-10 w-full max-w-6xl">
       <div className="header-wrapper flex items-center justify-between">
-        <a className="cursor-pointer px-2 py-3" href="/">
+        <Link className="cursor-pointer px-2 py-3" href="/" passHref>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-8 w-8 text-blue-600"
@@ -43,13 +43,13 @@ const Header = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
             />
           </svg>
-        </a>
+        </Link>
         <div className=" hidden space-x-1 md:flex">
           {headerNavLinks.map((l) => (
             <Link
@@ -74,9 +74,9 @@ const Header = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M4 6h16M4 12h16m-7 6h7"
             />
           </svg>
@@ -88,9 +88,9 @@ const Header = () => {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
