@@ -5,7 +5,7 @@ import Link from 'next/link';
 const AuthorCard = () => {
   return (
     <div className="my-2 grid rounded-lg px-4 py-4 shadow-lg md:grid-cols-2">
-      <Image className="flex-1" src={CoderImg} width={600} height={400} />
+      <Image className="flex-1" src={CoderImg} width={600} height={400} alt='Coder Image' />
       <div className="flex-initial md:ml-6">
         <div className="text-left text-gray-800">
           <div>

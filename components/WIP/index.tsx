@@ -11,7 +11,7 @@ const WIP = () => {
       animate={{ x: 0, y: 0, opacity: 1 }}
       transition={{ duration: 1, ease: 'easeOut', delay: 0.7 }}
     >
-      <Image src={WipImg} />
+      <Image src={WipImg} alt='Work in progress' />
       <p className="text-3xl font-bold">Work in Progess</p>
     </motion.div>
   )
