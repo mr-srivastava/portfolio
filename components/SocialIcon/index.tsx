@@ -6,7 +6,7 @@ import Linkedin from './linkedin.svg';
 import Twitter from './twitter.svg';
 import Instagram from './instagram.svg';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 interface SocialIconProps {
   kind: string;
