@@ -39,7 +39,7 @@ const AuthorCard = () => {
           please me.
         </div>
         <div>
-          <Link href="/projects">
+          <Link href="/projects" legacyBehavior>
             <div
               style={{
                 width: 'fit-content',

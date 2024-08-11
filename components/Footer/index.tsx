@@ -22,7 +22,7 @@ const Footer = () => {
         <div>{` • `}</div>
         <div>{`© ${new Date().getFullYear()}`}</div>
         <div>{` • `}</div>
-        <Link href="/">{siteMetadata.title}</Link>
+        <Link href="/" legacyBehavior>{siteMetadata.title}</Link>
       </div>
     </div>
   );
