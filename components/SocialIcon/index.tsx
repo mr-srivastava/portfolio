@@ -6,7 +6,7 @@ import Linkedin from './linkedin.svg';
 import Twitter from './twitter.svg';
 import Instagram from './instagram.svg';
 import { motion } from 'framer-motion';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface SocialIconProps {
   kind: string;
@@ -52,7 +52,10 @@ const SocialIcon = ({
           alt={kind}
           src={SocialSvg}
           className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </a>
     </motion.div>
   );
