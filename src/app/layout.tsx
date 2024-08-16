@@ -6,7 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aadarsh Srivastava - Portfolio",
-  description: "Aadarsh Srivastava - Portfolio"
+  description: "Aadarsh Srivastava - Portfolio",
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
 
 export default function RootLayout({
