@@ -1,18 +1,13 @@
 import { cn } from "@/lib/utils";
 import {
-  IconAdjustmentsBolt,
   IconBrandDocker,
   IconBrandGit,
-  IconBrandGoogleAnalytics,
   IconBrandJavascript,
   IconBrandNextjs,
   IconBrandNodejs,
   IconBrandReact,
   IconBrandRedux,
-  IconBrandTypescript,
-  IconHeart,
-  IconHelp,
-  IconRouteAltLeft
+  IconBrandTypescript
 } from "@tabler/icons-react";
 
 export default function HoverGrid() {
@@ -66,7 +61,10 @@ export default function HoverGrid() {
   ];
   return (
     <div className='py-20 lg:py-40 h-screen flex flex-col items-center justify-center'>
-      <h2 className='md:text-4xl text-xl text-white relative z-20'>
+      <h2
+        className='font-display text-center drop-shadow-sm text-white w-fit tracking-[-2px] text-6xl font-bold mb-10'
+        style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
+      >
         Skill-set
       </h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto'>
