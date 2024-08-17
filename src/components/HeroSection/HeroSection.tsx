@@ -2,6 +2,7 @@
 import React from "react";
 import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -16,16 +17,29 @@ export function HeroSection() {
 
 function HeroSectionContent() {
   return (
-    <>
-      <p className="text-center mt-2 text-neutral-300 relative z-20">
-        Hello there,my name is
-      </p>
-      <h1 className={cn("md:text-4xl text-xl text-white relative z-20")}>
-        Aadarsh Srivastava
-      </h1>
-      <p className="text-center mt-2 text-neutral-300 relative z-20">
-        I do all things web!
-      </p>
-    </>
+    <div className="hero-content w-[80%] flex items-center justify-between ">
+      <section>
+        <p className=" text-xl mb-6 dark:text-neutral-200 relative z-20 ">
+          Hello there,my name is
+        </p>
+        <h1
+          className={cn(
+            "text-2xl md:text-7xl font-bold dark:text-white relative z-20 "
+          )}
+        >
+          Aadarsh Srivastava
+        </h1>
+        <p className=" text-xl mt-8 dark:text-neutral-200 relative z-20">
+          I do all things web!
+        </p>
+      </section>
+      <Image
+        src="/profile.jpg"
+        alt="profile"
+        width={400}
+        height={400}
+        className=" rounded-3xl relative z-20 drop-shadow"
+      />
+    </div>
   );
 }
