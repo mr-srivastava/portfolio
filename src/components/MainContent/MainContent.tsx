@@ -5,6 +5,7 @@ import { HeroSection } from "../HeroSection/HeroSection";
 import HoverGrid from "../Hovergrid/Hovergrid";
 import AboutMe from "../AboutMe/AboutMe";
 import WorkEx from "../WorkEx/WorkEx";
+import { Navbar } from "../NavBar/Navbar";
 
 // Dummy dashboard component with content
 const MainContent = () => {
@@ -14,6 +15,7 @@ const MainContent = () => {
       <AboutMe />
       <WorkEx />
       <HoverGrid />
+      <Navbar className="sticky bottom-0 right-0" />
     </>
   );
 };
