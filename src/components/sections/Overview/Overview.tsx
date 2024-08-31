@@ -2,10 +2,10 @@ import React from "react";
 
 export default function Overview(props: IOverviewProps) {
   return (
-    <div className='p-20 lg:py-40 min-h-screen flex items-center justify-around gap-x-30'>
+    <div className='p-10 lg:p-20 lg:py-40 min-h-screen flex flex-col lg:flex-row items-center justify-around gap-x-30'>
       <div>
         <h3
-          className='year font-oswald tracking-[-20px] font-extrabold text-[395px] relative mr-[30px] mt-[-95px] text-accent leading-[1]'
+          className='font-extrabold text-[350px] relative text-accent leading-[1]'
           style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
         >
           {props.yoe || "04"}

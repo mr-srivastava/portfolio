@@ -25,10 +25,10 @@ const MainContent = () => {
   return (
     <>
       <HeroSection heroContent={HeroSectionContent} />
-      {/* <Overview {...OverviewContent} /> */}
-      {/* <WorkEx /> */}
-      {/* <HoverGrid /> */}
-      {/* <Navbar className='sticky bottom-0 right-0' /> */}
+      <Overview {...OverviewContent} />
+      <WorkEx />
+      <HoverGrid />
+      <Navbar className='sticky bottom-0 right-0' />
     </>
   );
 };
