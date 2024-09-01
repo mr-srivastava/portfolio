@@ -2,9 +2,8 @@
 import React from "react";
 
 import HoverGrid from "../Hovergrid/Hovergrid";
-import WorkEx from "../WorkEx/WorkEx";
 import { Navbar } from "../NavBar/Navbar";
-import { HeroSection, Overview } from "../sections";
+import { HeroSection, Overview, WorkExSection } from "../sections";
 import { IHeroContent } from "../sections/Hero/types";
 
 const HeroSectionContent: IHeroContent = {
@@ -26,9 +25,9 @@ const MainContent = () => {
     <>
       <HeroSection heroContent={HeroSectionContent} />
       <Overview {...OverviewContent} />
-      <WorkEx />
+      <WorkExSection />
       <HoverGrid />
-      <Navbar className='sticky bottom-0 right-0' />
+      {/* <Navbar className='sticky bottom-10 right-0' /> */}
     </>
   );
 };
