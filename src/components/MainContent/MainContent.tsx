@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-
-import HoverGrid from "../Hovergrid/Hovergrid";
 import { Navbar } from "../NavBar/Navbar";
-import { HeroSection, Overview, WorkExSection } from "../sections";
+import { HeroSection, Overview, SkillGrid, WorkExSection } from "../sections";
 import { IHeroContent } from "../sections/Hero/types";
 
 const HeroSectionContent: IHeroContent = {
@@ -26,7 +24,7 @@ const MainContent = () => {
       <HeroSection heroContent={HeroSectionContent} />
       <Overview {...OverviewContent} />
       <WorkExSection />
-      <HoverGrid />
+      <SkillGrid />
       {/* <Navbar className='sticky bottom-10 right-0' /> */}
     </>
   );

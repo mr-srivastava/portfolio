@@ -6,7 +6,7 @@ interface IExperienceProps {
 const Experience: React.FC<IExperienceProps> = (props) => {
   const { experience } = props;
   return (
-    <div className='p-10'>
+    <div className='px-1 py-5 lg:p-10'>
       <h3 className="text-xl">{experience.position}</h3>
       <p className="text-sm text-neutral-300">
         {experience.startDate} - {experience.endDate}
