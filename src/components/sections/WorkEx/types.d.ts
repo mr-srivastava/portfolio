@@ -11,8 +11,8 @@ export interface IExperience {
   position: string;
   company: string;
   place: string;
-  startDate: string;
-  endDate: string;
+  startDate: number;
+  endDate: number|null;
   description: string;
   techStack: Array<string>;
 }

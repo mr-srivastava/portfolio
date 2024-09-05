@@ -19,7 +19,7 @@ const HeroSectionContent: IHeroContent = {
 const OverviewContent: IOverView = {
   yoe: "04",
   description:
-    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expeditasaepe, dolor recusandae rerum laborum incidunt perferendis dolorum dolorem id libero possimus nesciunt inventore nihil veritatis dolores fugit reprehenderit iste nulla! Doloribus suscipit quidem non aperiamatque cum vitae fuga quasi sunt ullam, libero sit, ducimus laudantiumab similique error modi qui quam magni nesciunt obcaecati maioresquae. Hic modi deleniti rem totam beatae."
+    "Aadarsh is a seasoned full-stack developer with 4 years of experience crafting innovative web applications. Proficient in JavaScript, TypeScript, React, Next.js, Node.js, and more, he's a quick learner and team player. His passion for creating exceptional digital experiences makes him a valuable asset to any team."
 };
 
 // Dummy dashboard component with content
