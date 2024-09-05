@@ -7,33 +7,17 @@ import Experience from "./Experience";
 const data: Array<TimelineEntry> = [
   {
     title: "Zolo",
-    content: (
-      <ul>
-        {getExperiencesByCompany("Zolo").map((experience) => (
-          <li key={`${experience.company}-${experience.position}`}>
-            <Experience experience={experience} />
-          </li>
-        ))}
-      </ul>
-    )
+    content: <Experience positions={getExperiencesByCompany("Zolo")} />,
   },
   {
     title: "PwC India",
-    content: (
-      <ul>
-        {getExperiencesByCompany("PwC India").map((experience) => (
-          <li key={`${experience.company}-${experience.position}`}>
-            <Experience experience={experience} />
-          </li>
-        ))}
-      </ul>
-    )
-  }
+    content: <Experience positions={getExperiencesByCompany("PwC India")} />,
+  },
 ];
 
 export default function WorkTimeline() {
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Timeline data={data} />
     </div>
   );

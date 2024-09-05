@@ -37,20 +37,26 @@ export default function Overview(props: IOverviewProps) {
         <p className="text-white/95 font-medium leading-[26px] max-w-[500px]">
           {props.description}
         </p>
-        <button
-          className={cn(
-            "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden  max-w-[200px] mt-5",
-            "bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn"
-          )}
-        >
-          <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
-            Get Resume
-          </span>
-          <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 z-20">
-            <IconDownload />
-          </div>
-        </button>
+        <GetResumeButton />
       </div>
     </div>
   );
 }
+
+const GetResumeButton: React.FC<{}> = () => {
+  return (
+    <button
+      className={cn(
+        "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden  max-w-[200px] mt-5",
+        "bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn"
+      )}
+    >
+      <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
+        Get Resume
+      </span>
+      <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 z-20">
+        <IconDownload />
+      </div>
+    </button>
+  );
+};
