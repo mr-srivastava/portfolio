@@ -1,9 +1,14 @@
 import { IExperience } from "./types";
 
+enum Companies {
+  Zolo = "Zolo",
+  PwCIndia = "PwC India"
+}
+
 const experiences: Array<IExperience> = [
   {
     position: "Sr. Software Engineer II",
-    company: "Zolo",
+    company: Companies.Zolo,
     place: "India",
     startDate: "April 2024",
     endDate: "Present",
@@ -13,7 +18,7 @@ const experiences: Array<IExperience> = [
   },
   {
     position: "Sr. Software Engineer I",
-    company: "Zolo",
+    company: Companies.Zolo,
     place: "India",
     startDate: "April 2023",
     endDate: "March 2024",
@@ -23,7 +28,7 @@ const experiences: Array<IExperience> = [
   },
   {
     position: "Software Development Engineer II",
-    company: "Zolo",
+    company: Companies.Zolo,
     place: "India",
     startDate: "July 2022",
     endDate: "March 2023",
@@ -33,7 +38,7 @@ const experiences: Array<IExperience> = [
   },
   {
     position: "Associate, Technology Consulting",
-    company: "PwC India",
+    company: Companies.PwCIndia,
     place: "India",
     startDate: "September 2020",
     endDate: "June 2022",
@@ -43,8 +48,23 @@ const experiences: Array<IExperience> = [
   }
 ];
 
-const getExperiencesByCompany = (company: string) => {
-  return experiences.filter((experience) => experience.company === company);
+const getExperienceTimelineData = () => {
+  const experienceTimelineData = (
+    Object.keys(Companies) as Array<keyof typeof Companies>
+  ).map((company) => {
+    const companyHistory = {
+      company,
+      positions: getExperiencesByCompany(company)
+    };
+    return companyHistory;
+  });
+  return experienceTimelineData;
 };
 
-export { getExperiencesByCompany };
+const getExperiencesByCompany = (company: keyof typeof Companies) => {
+  return experiences.filter(
+    (experience) => experience.company === Companies[company]
+  );
+};
+
+export { getExperiencesByCompany, getExperienceTimelineData };

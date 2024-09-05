@@ -1,24 +1,21 @@
 import { Timeline } from "@/components/ui/timeline";
 import React from "react";
-import { TimelineEntry } from "./types";
-import { getExperiencesByCompany } from "./helper";
+import { getExperienceTimelineData } from "./helper";
 import Experience from "./Experience";
 
-const data: Array<TimelineEntry> = [
-  {
-    title: "Zolo",
-    content: <Experience positions={getExperiencesByCompany("Zolo")} />,
-  },
-  {
-    title: "PwC India",
-    content: <Experience positions={getExperiencesByCompany("PwC India")} />,
-  },
-];
+const EXPERIENCE_TIMELINE_DATA = getExperienceTimelineData().map(
+  (companyHistory) => {
+    return {
+      title: companyHistory.company,
+      content: <Experience positions={companyHistory.positions} />
+    };
+  }
+);
 
 export default function WorkTimeline() {
   return (
-    <div className="w-full">
-      <Timeline data={data} />
+    <div className='w-full'>
+      <Timeline data={EXPERIENCE_TIMELINE_DATA} />
     </div>
   );
 }
