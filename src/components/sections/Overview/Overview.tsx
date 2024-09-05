@@ -5,7 +5,7 @@ export default function Overview(props: IOverviewProps) {
     <div className='p-10 lg:p-20 lg:py-40 min-h-screen flex flex-col lg:flex-row items-center justify-around gap-x-30'>
       <div>
         <h3
-          className='font-extrabold text-[250px] lg:text-[350px] relative text-accent leading-[1] text-[#0E2954]'
+          className='font-extrabold text-[250px] lg:text-[350px] relative text-accent leading-[1] text-[#0F172A]'
           style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
         >
           {props.yoe}
