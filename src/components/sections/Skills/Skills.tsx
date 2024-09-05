@@ -16,47 +16,49 @@ export default function SkillGrid(props: ISkillGrid) {
     {
       title: "React",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
+        "The building block for dynamic user interfaces. It's like LEGOs for web developers.",
       icon: <IconBrandReact />
     },
     {
       title: "Next",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
+        "React's BFF (Best Friend Forever). It helps you build full-stack apps with ease.",
       icon: <IconBrandNextjs />
     },
     {
       title: "Javascript",
-      description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
+      description: "The web's unpredictable but powerful sidekick.",
       icon: <IconBrandJavascript />
     },
     {
       title: "Typescript",
-      description: "We just cannot be taken down by anyone.",
+      description:
+        "JavaScript's superpowered cousin. It adds types for safer and more predictable code.",
       icon: <IconBrandTypescript />
     },
     {
       title: "Redux",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
+        "The central nervous system of your app. It manages your state with a single source of truth.",
       icon: <IconBrandRedux />
     },
     {
       title: "Node",
-      description: "You can simply share passwords instead of buying new seats",
+      description:
+        "JavaScript's server-side superpower. It runs your code on the server.",
       icon: <IconBrandNodejs />
     },
 
     {
       title: "Git",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
+        "The time machine for your code. It lets you travel back and forth to different versions.",
       icon: <IconBrandGit />
     },
     {
       title: "Docker",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      description:
+        "The shipping container for your apps. It packages them up for easy deployment.",
       icon: <IconBrandDocker />
     }
   ];
