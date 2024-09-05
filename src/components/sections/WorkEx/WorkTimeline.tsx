@@ -7,7 +7,14 @@ const EXPERIENCE_TIMELINE_DATA = getExperienceTimelineData().map(
   (companyHistory) => {
     return {
       title: companyHistory.company,
-      content: <Experience positions={companyHistory.positions} />
+      content: (
+        <Experience
+          positions={companyHistory.positions}
+          startDate={companyHistory.companyStartDate}
+          endDate={companyHistory.companyEndDate}
+          company={companyHistory.company}
+        />
+      )
     };
   }
 );

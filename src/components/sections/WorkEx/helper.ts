@@ -10,8 +10,8 @@ const experiences: Array<IExperience> = [
     position: "Sr. Software Engineer II",
     company: Companies.Zolo,
     place: "India",
-    startDate: "April 2024",
-    endDate: "Present",
+    startDate: 1711909800,
+    endDate: null,
     description:
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
@@ -20,8 +20,8 @@ const experiences: Array<IExperience> = [
     position: "Sr. Software Engineer I",
     company: Companies.Zolo,
     place: "India",
-    startDate: "April 2023",
-    endDate: "March 2024",
+    startDate: 1680287400,
+    endDate: 1711823400,
     description:
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
@@ -30,8 +30,8 @@ const experiences: Array<IExperience> = [
     position: "Software Development Engineer II",
     company: Companies.Zolo,
     place: "India",
-    startDate: "July 2022",
-    endDate: "March 2023",
+    startDate: 1656873000,
+    endDate: 1680201000,
     description:
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
@@ -40,21 +40,40 @@ const experiences: Array<IExperience> = [
     position: "Associate, Technology Consulting",
     company: Companies.PwCIndia,
     place: "India",
-    startDate: "September 2020",
-    endDate: "June 2022",
+    startDate: 1600021800,
+    endDate: 1656441000,
     description:
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
   }
 ];
 
+const getCompanyTimePeriod = (company: keyof typeof Companies) => {
+  const companyStartDate = Math.min(
+    ...getExperiencesByCompany(company).map((exp) => exp.startDate)
+  );
+  const isStillAtCompany = getExperiencesByCompany(company).some(
+    (exp) => exp.endDate === null
+  );
+  const companyEndDate = isStillAtCompany
+    ? null
+    : Math.max(
+        ...getExperiencesByCompany(company).map(
+          (exp) => exp.endDate || Date.now()
+        )
+      );
+
+  return { companyStartDate, companyEndDate };
+};
+
 const getExperienceTimelineData = () => {
   const experienceTimelineData = (
     Object.keys(Companies) as Array<keyof typeof Companies>
   ).map((company) => {
     const companyHistory = {
-      company,
-      positions: getExperiencesByCompany(company)
+      company: Companies[company],
+      positions: getExperiencesByCompany(company),
+      ...getCompanyTimePeriod(company)
     };
     return companyHistory;
   });
@@ -67,4 +86,8 @@ const getExperiencesByCompany = (company: keyof typeof Companies) => {
   );
 };
 
-export { getExperiencesByCompany, getExperienceTimelineData };
+export {
+  getExperiencesByCompany,
+  getExperienceTimelineData,
+  getCompanyTimePeriod
+};
