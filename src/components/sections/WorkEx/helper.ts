@@ -2,7 +2,7 @@ import { IExperience } from "./types";
 
 const experiences: Array<IExperience> = [
   {
-    position: "Senior Software Engineer II",
+    position: "Sr. Software Engineer II",
     company: "Zolo",
     place: "India",
     startDate: "April 2024",
@@ -12,7 +12,7 @@ const experiences: Array<IExperience> = [
     techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
   },
   {
-    position: "Senior Software Engineer I",
+    position: "Sr. Software Engineer I",
     company: "Zolo",
     place: "India",
     startDate: "April 2023",
