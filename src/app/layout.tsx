@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Epilogue } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const epilogue = Epilogue({
   subsets: ["latin"],
@@ -22,6 +23,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <Head>
+        <link
+          rel="preload"
+          href="https://ik.imagekit.io/9omfkfrhk/tr:h-400,w-400:q-20,bl-10/images/profile.jpg"
+          as="image"
+        />
+      </Head>
       <body className={epilogue.className}>{children}</body>
     </html>
   );
