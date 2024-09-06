@@ -27,6 +27,7 @@ export default function HeroContent(props: IHeroContentProps) {
         width={400}
         height={400}
         className=" rounded-3xl relative z-20 drop-shadow"
+        priority
       />
     </div>
   );
