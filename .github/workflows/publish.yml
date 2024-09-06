@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - github-pages-deploy
 
 permissions:
   contents: read
