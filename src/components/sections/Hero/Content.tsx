@@ -1,6 +1,7 @@
+"use client";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import { IHeroContentProps } from "./types";
+import { IKImage } from "imagekitio-next";
 
 export default function HeroContent(props: IHeroContentProps) {
   return (
@@ -21,12 +22,14 @@ export default function HeroContent(props: IHeroContentProps) {
           {props.followup || "I do all things web!"}
         </p>
       </section>
-      <Image
-        src={props.src}
+      <IKImage
+        urlEndpoint={process.env.NEXT_PUBLIC_URL_ENDPOINT}
+        path={props.src}
         alt="profile"
         width={400}
         height={400}
         className=" rounded-3xl relative z-20 drop-shadow"
+        lqip={{ active: true }}
         priority
       />
     </div>
