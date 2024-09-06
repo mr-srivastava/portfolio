@@ -71,6 +71,7 @@ const getExperienceTimelineData = () => {
     Object.keys(Companies) as Array<keyof typeof Companies>
   ).map((company) => {
     const companyHistory = {
+      id: company,
       company: Companies[company],
       positions: getExperiencesByCompany(company),
       ...getCompanyTimePeriod(company)

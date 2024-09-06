@@ -9,6 +9,7 @@ const EXPERIENCE_TIMELINE_DATA = getExperienceTimelineData().map(
       title: companyHistory.company,
       content: (
         <Experience
+          id={companyHistory.id}
           positions={companyHistory.positions}
           startDate={companyHistory.companyStartDate}
           endDate={companyHistory.companyEndDate}
