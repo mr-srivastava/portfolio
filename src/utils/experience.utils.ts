@@ -1,8 +1,17 @@
-import { IExperience } from "./types";
+import { IExperience } from "@/components/sections/WorkEx/types";
 
 enum Companies {
   Zolo = "Zolo",
-  PwCIndia = "PwC India"
+  PwCIndia = "PwC India",
+}
+
+enum Skills {
+  React = "React",
+  Next = "Next",
+  Javascript = "Javascript",
+  Typescript = "Typescript",
+  Redux = "Redux",
+  Node = "Node",
 }
 
 const experiences: Array<IExperience> = [
@@ -12,9 +21,17 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1711909800,
     endDate: null,
-    description:
+    description: [
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
+    ],
+    techStack: [
+      Skills.React,
+      Skills.Next,
+      Skills.Javascript,
+      Skills.Typescript,
+      Skills.Redux,
+      Skills.Node,
+    ],
   },
   {
     position: "Sr. Software Engineer I",
@@ -22,9 +39,17 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1680287400,
     endDate: 1711823400,
-    description:
+    description: [
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
+    ],
+    techStack: [
+      Skills.React,
+      Skills.Next,
+      Skills.Javascript,
+      Skills.Typescript,
+      Skills.Redux,
+      Skills.Node,
+    ],
   },
   {
     position: "Software Development Engineer II",
@@ -32,9 +57,17 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1656873000,
     endDate: 1680201000,
-    description:
+    description: [
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
+    ],
+    techStack: [
+      Skills.React,
+      Skills.Next,
+      Skills.Javascript,
+      Skills.Typescript,
+      Skills.Redux,
+      Skills.Node,
+    ],
   },
   {
     position: "Associate, Technology Consulting",
@@ -42,10 +75,18 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1600021800,
     endDate: 1656441000,
-    description:
+    description: [
       "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
-  }
+    ],
+    techStack: [
+      Skills.React,
+      Skills.Next,
+      Skills.Javascript,
+      Skills.Typescript,
+      Skills.Redux,
+      Skills.Node,
+    ],
+  },
 ];
 
 const getCompanyTimePeriod = (company: keyof typeof Companies) => {
@@ -74,7 +115,7 @@ const getExperienceTimelineData = () => {
       id: company,
       company: Companies[company],
       positions: getExperiencesByCompany(company),
-      ...getCompanyTimePeriod(company)
+      ...getCompanyTimePeriod(company),
     };
     return companyHistory;
   });
@@ -87,8 +128,26 @@ const getExperiencesByCompany = (company: keyof typeof Companies) => {
   );
 };
 
+const getSkillsByCompany = (company: keyof typeof Companies) => {
+  const experiences = getExperiencesByCompany(company);
+  const skills = experiences.reduce((acc, exp) => {
+    return [...acc, ...exp.techStack];
+  }, [] as string[]);
+  return Array.from(new Set(skills));
+};
+
+const getAchievementsByCompany = (company: keyof typeof Companies) => {
+  const experiences = getExperiencesByCompany(company);
+  const achievements = experiences.reduce((acc, exp) => {
+    return [...acc, ...exp.description];
+  }, [] as string[]);
+  return Array.from(new Set(achievements));
+};
+
 export {
-  getExperiencesByCompany,
+  Companies,
   getExperienceTimelineData,
-  getCompanyTimePeriod
+  getCompanyTimePeriod,
+  getSkillsByCompany,
+  getAchievementsByCompany,
 };

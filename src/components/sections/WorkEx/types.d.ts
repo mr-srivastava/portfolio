@@ -12,7 +12,7 @@ export interface IExperience {
   company: string;
   place: string;
   startDate: number;
-  endDate: number|null;
-  description: string;
+  endDate: number | null;
+  description: Array<string>;
   techStack: Array<string>;
 }

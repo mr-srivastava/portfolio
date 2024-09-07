@@ -1,7 +1,7 @@
 import { Timeline } from "@/components/ui/timeline";
 import React from "react";
-import { getExperienceTimelineData } from "./helper";
 import Experience from "./Experience";
+import { getExperienceTimelineData } from "@/utils";
 
 const EXPERIENCE_TIMELINE_DATA = getExperienceTimelineData().map(
   (companyHistory) => {
@@ -15,14 +15,14 @@ const EXPERIENCE_TIMELINE_DATA = getExperienceTimelineData().map(
           endDate={companyHistory.companyEndDate}
           company={companyHistory.company}
         />
-      )
+      ),
     };
   }
 );
 
 export default function WorkTimeline() {
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <Timeline data={EXPERIENCE_TIMELINE_DATA} />
     </div>
   );
