@@ -21,8 +21,9 @@ const HeroSectionContent: IHeroContent = {
 
 const OverviewContent: IOverView = {
   yoe: "04",
-  description:
-    "Aadarsh is a seasoned full-stack developer with 4 years of experience crafting innovative web applications. Proficient in JavaScript, TypeScript, React, Next.js, Node.js, and more, he's a quick learner and team player. His passion for creating exceptional digital experiences makes him a valuable asset to any team.",
+  description: `Hey, I'm Aadarsh Srivastava. I started as a software engineer back in 2020, working with PwC India.
+  I'm currently working at Zolo as Senior Software Engineer. Before that, I was a Full Stack Developer at PwC India for Concourse. I'm originally from Ranchi, India and now living in Bangalore, India.
+  I love to explore web and software development. When I'm not working, I am mostly watching YouTube.`,
 };
 
 // Dummy dashboard component with content
