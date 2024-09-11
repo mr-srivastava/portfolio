@@ -32,7 +32,7 @@ const MainContent = () => {
     <>
       <HeroSection heroContent={HeroSectionContent} />
       <Overview {...OverviewContent} />
-      {/* <WorkExSection /> */}
+      <WorkExSection />
       {/* <SkillGrid /> */}
       <FooterSection />
     </>
