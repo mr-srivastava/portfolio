@@ -31,7 +31,7 @@ const MainContent = () => {
   return (
     <>
       <HeroSection heroContent={HeroSectionContent} />
-      {/* <Overview {...OverviewContent} /> */}
+      <Overview {...OverviewContent} />
       {/* <WorkExSection /> */}
       {/* <SkillGrid /> */}
       <FooterSection />
