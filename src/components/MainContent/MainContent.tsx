@@ -1,19 +1,22 @@
 "use client";
 import React from "react";
-import {
-  FooterSection,
-  HeroSection,
-  Overview,
-  SkillGrid,
-  WorkExSection,
-} from "../sections";
+import dynamic from "next/dynamic";
+import { FooterSection, HeroSection, Overview } from "../sections";
+
 import { IHeroContent } from "../sections/Hero/types";
+
+const SkillGrid = dynamic(() =>
+  import("../sections").then((mod) => mod.SkillGrid)
+);
+const WorkExSection = dynamic(() =>
+  import("../sections").then((mod) => mod.WorkExSection)
+);
 
 const HeroSectionContent: IHeroContent = {
   preface: "Hello there,my name is",
   content: "Aadarsh Srivastava",
   followup: "I do all things web!",
-  src: "https://ik.imagekit.io/9omfkfrhk/images/profile.jpg?tr=w-400,h-562",
+  src: "images/profile.jpg",
 };
 
 const OverviewContent: IOverView = {
