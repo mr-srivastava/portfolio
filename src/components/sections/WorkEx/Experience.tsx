@@ -52,7 +52,7 @@ const Experience: React.FC<IExperienceProps> = (props) => {
           />
         ))}
       </div>
-      <div className="mt-6">
+      {/* <div className="mt-6">
         <h4 className="text-base font-semibold text-gray-300 mb-2">
           Skills & Technologies
         </h4>
@@ -80,7 +80,7 @@ const Experience: React.FC<IExperienceProps> = (props) => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

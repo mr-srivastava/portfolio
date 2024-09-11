@@ -37,7 +37,7 @@ export default function Overview(props: IOverviewProps) {
         <p className="text-white/95 font-medium leading-[26px] max-w-[500px]">
           {props.description}
         </p>
-        <GetResumeButton />
+        {/* <GetResumeButton /> */}
       </div>
     </div>
   );
