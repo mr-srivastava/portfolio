@@ -12,13 +12,13 @@ export default function HeroContent(props: IHeroContentProps) {
         )}
       >
         <section>
-          <p className=" text-lg lg:text-xl mb-3 lg:mb-6 dark:text-neutral-200 relative z-20 text-center lg:text-left">
+          <p className=" text-[14px] lg:text-xl mb-3 lg:mb-6 dark:text-neutral-200 relative z-20">
             {props.preface || "Hello there,my name is"}
           </p>
-          <h1 className="text-3xl lg:text-6xl font-bold dark:text-white relative z-20 text-center lg:text-left ">
+          <h1 className="text-[28px] lg:text-6xl font-bold dark:text-white relative z-20">
             {props.content}
           </h1>
-          <p className=" text-xl lg:text-2xl mt-8 dark:text-neutral-200 relative z-20 text-center lg:text-right">
+          <p className=" text-[16px] lg:text-2xl text-right lg:mt-8 dark:text-neutral-200 relative z-20">
             {props.followup || "I do all things web!"}
           </p>
         </section>
@@ -27,7 +27,7 @@ export default function HeroContent(props: IHeroContentProps) {
           alt="profile"
           width={400}
           height={400}
-          className=" rounded-3xl relative z-20 drop-shadow"
+          className="object-cover aspect-square rounded-full relative z-20 drop-shadow"
         />
       </div>
     </>
