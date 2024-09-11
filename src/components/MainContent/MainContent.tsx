@@ -1,16 +1,8 @@
 "use client";
 import React from "react";
-import dynamic from "next/dynamic";
-import { FooterSection, HeroSection, Overview } from "../sections";
+import { FooterSection, HeroSection, Overview, SkillGrid, WorkExSection } from "../sections";
 
 import { IHeroContent } from "../sections/Hero/types";
-
-const SkillGrid = dynamic(() =>
-  import("../sections").then((mod) => mod.SkillGrid)
-);
-const WorkExSection = dynamic(() =>
-  import("../sections").then((mod) => mod.WorkExSection)
-);
 
 const HeroSectionContent: IHeroContent = {
   preface: "Hello there,my name is",
