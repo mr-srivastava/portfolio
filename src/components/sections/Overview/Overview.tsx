@@ -35,10 +35,15 @@ export default function Overview(props: IOverviewProps) {
             About Me
           </div>
         </div>
-        <p className="text-white/95 font-light lg:font-medium leading-[26px] max-w-[500px]">
+        <p className="text-white/95 font-light lg:font-medium leading-[26px] max-w-[500px] mb-10">
           {props.description}
         </p>
-        <EnhancedResumeDownload />
+        <EnhancedResumeDownload
+          fileName="Aadarsh Srivastava"
+          fileUrl={
+            "https://drive.google.com/file/d/1O-ektH6Td9vI9XVYpJMBoqoHq6Tt-mIs/view?usp=drive_link"
+          }
+        />
       </div>
     </div>
   );
