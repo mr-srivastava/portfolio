@@ -1,3 +1,4 @@
+import { EnhancedResumeDownload } from "@/components/enhanced-resume-download";
 import { cn } from "@/lib/utils";
 import { IconDownload } from "@tabler/icons-react";
 import React from "react";
@@ -37,7 +38,7 @@ export default function Overview(props: IOverviewProps) {
         <p className="text-white/95 font-light lg:font-medium leading-[26px] max-w-[500px]">
           {props.description}
         </p>
-        {/* <GetResumeButton /> */}
+        <EnhancedResumeDownload />
       </div>
     </div>
   );
