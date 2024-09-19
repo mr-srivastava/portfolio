@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is a Next.js application using Tailwind CSS for styling and Framer Motion for animations. It features a portfolio website for Aadarsh Srivastava, showcasing his work experience, skills, and technology knowledge.
 
-## Getting Started
+## Inputs
 
-First, run the development server:
+The project utilizes various data sources for its content:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **`experiences` array:** Contains an array of objects representing Aadarsh's work experience.
+* **`SKILLS` array:** Holds a list of Aadarsh's technical skills.
+* **`ACHIEVELEMENTS` array:** Contains a list of Aadarsh's key achievements.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Outputs
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The project generates a portfolio website with the following features:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* **Homepage:** A dynamic homepage with an interactive hero section, an overview of Aadarsh's work, experience timeline, skills grid, and footer with contact links.
+* **Hero Section:** A visually appealing section with a large image of Aadarsh, his name, and a tagline.
+* **Overview Section:** A section providing a summary of Aadarsh's background, experience, and interests.
+* **Experience Timeline:** A visually interactive timeline highlighting Aadarsh's work experience at different companies.
+* **Skills Grid:** A grid showcasing Aadarsh's technical skills, with descriptions and icons.
+* **Footer:** A footer with links to Aadarsh's social media profiles and contact information.
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+To use the project, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository:** Use `git clone <repository URL>`. 
+2. **Install dependencies:** Run `npm install` or `yarn install`.
+3. **Start the development server:** Run `npm run dev` or `yarn dev`. 
+4. **Access the website:** Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The project can be further customized by modifying the data sources, components, and styling based on specific requirements.
