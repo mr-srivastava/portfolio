@@ -34,7 +34,6 @@ export function EnhancedResumeDownload({
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Download error:", error);
-      alert("Failed to download the file. Please try again.");
     } finally {
       setIsDownloading(false);
     }
