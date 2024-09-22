@@ -17,19 +17,46 @@ import {
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+interface ColorProps {
+  bgColor?: string;
+  hoverColor?: string;
+  textColor?: string;
+}
+
+interface DockItem {
+  title: string;
+  icon: React.ReactNode;
+  href: string;
+  onClick?: () => void;
+}
+
 export const FloatingDock = ({
   items,
   desktopClassName,
   mobileClassName,
+  orientation = "horizontal",
+  colors = {},
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: DockItem[];
   desktopClassName?: string;
   mobileClassName?: string;
+  orientation?: "horizontal" | "vertical";
+  colors?: ColorProps;
 }) => {
   return (
     <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
+      <FloatingDockDesktop
+        items={items}
+        className={desktopClassName}
+        orientation={orientation}
+        colors={colors}
+      />
+      <FloatingDockMobile
+        items={items}
+        className={mobileClassName}
+        orientation={orientation}
+        colors={colors}
+      />
     </>
   );
 };
@@ -37,30 +64,47 @@ export const FloatingDock = ({
 const FloatingDockMobile = ({
   items,
   className,
+  orientation,
+  colors,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: DockItem[];
   className?: string;
+  orientation: "horizontal" | "vertical";
+  colors: ColorProps;
 }) => {
   const [open, setOpen] = useState(false);
+  const { bgColor = "bg-blue-500", hoverColor = "hover:bg-blue-600", textColor = "text-white" } = colors;
+
   return (
     <div className={cn("relative block md:hidden", className)}>
       <AnimatePresence>
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2"
+            className={cn(
+              "absolute flex gap-2",
+              orientation === "vertical"
+                ? "flex-col right-full mr-2 inset-y-0"
+                : "flex-row bottom-full mb-2 inset-x-0"
+            )}
           >
             {items.map((item, idx) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{
+                  opacity: 0,
+                  y: orientation === "vertical" ? 0 : 10,
+                  x: orientation === "vertical" ? 10 : "-50%",
+                }}
                 animate={{
                   opacity: 1,
                   y: 0,
+                  x: orientation === "vertical" ? 0 : "-50%",
                 }}
                 exit={{
                   opacity: 0,
-                  y: 10,
+                  y: orientation === "vertical" ? 0 : 2,
+                  x: orientation === "vertical" ? 2 : "-50%",
                   transition: {
                     delay: idx * 0.05,
                   },
@@ -70,9 +114,9 @@ const FloatingDockMobile = ({
                 <Link
                   href={item.href}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
+                  className={cn("h-10 w-10 rounded-full flex items-center justify-center", bgColor, hoverColor)}
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className={cn("h-4 w-4", textColor)}>{item.icon}</div>
                 </Link>
               </motion.div>
             ))}
@@ -81,9 +125,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
+        className={cn("h-10 w-10 rounded-full flex items-center justify-center", bgColor, hoverColor)}
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <IconLayoutNavbarCollapse className={cn("h-5 w-5", textColor)} />
       </button>
     </div>
   );
@@ -92,22 +136,46 @@ const FloatingDockMobile = ({
 const FloatingDockDesktop = ({
   items,
   className,
+  orientation,
+  colors,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: DockItem[];
   className?: string;
+  orientation: "horizontal" | "vertical";
+  colors: ColorProps;
 }) => {
   let mouseX = useMotionValue(Infinity);
+  let mouseY = useMotionValue(Infinity);
+  const { bgColor = "bg-blue-500" } = colors;
+
   return (
     <motion.div
-      onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseMove={(e) => {
+        mouseX.set(e.pageX);
+        mouseY.set(e.pageY);
+      }}
+      onMouseLeave={() => {
+        mouseX.set(Infinity);
+        mouseY.set(Infinity);
+      }}
       className={cn(
-        "mx-auto hidden md:flex h-16 gap-4 items-end  rounded-2xl bg-gray-50 dark:bg-neutral-900 px-4 pb-3",
+        "mx-auto hidden md:flex gap-4 items-center rounded-2xl p-4",
+        bgColor,
+        orientation === "vertical"
+          ? "flex-col h-auto w-20"
+          : "flex-row h-16 w-auto",
         className
       )}
     >
       {items.map((item) => (
-        <IconContainer mouseX={mouseX} key={item.title} {...item} />
+        <IconContainer
+          mouseX={mouseX}
+          mouseY={mouseY}
+          key={item.title}
+          {...item}
+          orientation={orientation}
+          colors={colors}
+        />
       ))}
     </motion.div>
   );
@@ -115,31 +183,51 @@ const FloatingDockDesktop = ({
 
 function IconContainer({
   mouseX,
+  mouseY,
   title,
   icon,
   href,
+  onClick,
+  orientation,
+  colors,
 }: {
   mouseX: MotionValue;
+  mouseY: MotionValue;
   title: string;
   icon: React.ReactNode;
   href: string;
+  onClick?: () => void;
+  orientation: "horizontal" | "vertical";
+  colors: ColorProps;
 }) {
   let ref = useRef<HTMLDivElement>(null);
+  const { bgColor = "bg-blue-400", hoverColor = "hover:bg-blue-600", textColor = "text-white" } = colors;
 
-  let distance = useTransform(mouseX, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  let distance = useTransform(
+    orientation === "vertical" ? mouseY : mouseX,
+    (val) => {
+      let bounds = ref.current?.getBoundingClientRect() ?? {
+        x: 0,
+        y: 0,
+        width: 0,
+        height: 0,
+      };
+      return (
+        val -
+        (orientation === "vertical" ? bounds.y : bounds.x) +
+        (orientation === "vertical" ? bounds.height : bounds.width) / 2
+      );
+    }
+  );
 
-    return val - bounds.x - bounds.width / 2;
-  });
+  let widthTransform = useTransform(distance, [-150, 0, 150], [50, 60, 50]);
+  let heightTransform = useTransform(distance, [-150, 0, 150], [50, 60, 50]);
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [24, 28, 24]);
   let heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
-    [20, 40, 20]
+    [24, 28, 24]
   );
 
   let width = useSpring(widthTransform, {
@@ -166,33 +254,55 @@ function IconContainer({
 
   const [hovered, setHovered] = useState(false);
 
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
-    <Link href={href}>
+    <Link href={href} onClick={handleClick}>
       <motion.div
         ref={ref}
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center relative"
+        className={cn(
+          "rounded-full flex items-center justify-center relative",
+          bgColor,
+          hoverColor,
+          orientation === "vertical" ? "flex-col py-2" : "aspect-square"
+        )}
       >
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, x: "-50%" }}
-              animate={{ opacity: 1, y: 0, x: "-50%" }}
-              exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-gray-100 border dark:bg-neutral-800 dark:border-neutral-900 dark:text-white border-gray-200 text-neutral-700 absolute left-1/2 -translate-x-1/2 -top-8 w-fit text-xs"
-            >
-              {title}
-            </motion.div>
-          )}
-        </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center"
+          className={cn("flex items-center justify-center", textColor)}
         >
           {icon}
         </motion.div>
+        {hovered && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 10,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              y: 2,
+            }}
+            className={cn(
+              "px-2 py-0.5 whitespace-pre rounded-md bg-blue-100 border border-blue-200 text-blue-700 absolute w-fit text-xs",
+              "right-1/2 -translate-x-1/2 bottom-full mb-2"
+            )}
+          >
+            {title}
+          </motion.div>
+        )}
       </motion.div>
     </Link>
   );
