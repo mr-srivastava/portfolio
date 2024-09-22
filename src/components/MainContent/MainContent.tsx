@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
-import { FooterSection, HeroSection, Overview, SkillGrid, WorkExSection } from "../sections";
+import {
+  FooterSection,
+  HeroSection,
+  Overview,
+  SkillGrid,
+  WorkExSection,
+} from "../sections";
 
 import { IHeroContent } from "../sections/Hero/types";
+import { Navbar } from "../NavBar/Navbar";
 
 const HeroSectionContent: IHeroContent = {
   preface: "Hello there,my name is",
@@ -18,16 +25,39 @@ const OverviewContent: IOverView = {
   I love to explore web and software development. When I'm not working, I am mostly watching YouTube.`,
 };
 
-// Dummy dashboard component with content
+// Main content component with floating navbar
 const MainContent = () => {
   return (
-    <>
-      <HeroSection heroContent={HeroSectionContent} />
-      <Overview {...OverviewContent} />
-      <WorkExSection />
-      <SkillGrid />
-      <FooterSection />
-    </>
+    <div className="relative">
+      <div className="w-full">
+        <section id="home" className="w-full flex justify-center">
+          <div className="w-full flex justify-center">
+            <HeroSection heroContent={HeroSectionContent} />
+          </div>
+        </section>
+        <section id="overview" className="w-full flex justify-center">
+          <div className="max-w-7xl w-full flex justify-center">
+            <Overview {...OverviewContent} />
+          </div>
+        </section>
+        <section id="experience" className="w-full flex justify-center">
+          <div className="max-w-7xl w-full flex justify-center">
+            <WorkExSection />
+          </div>
+        </section>
+        <section id="skills" className="w-full flex justify-center">
+          <div className="max-w-7xl w-full flex justify-center">
+            <SkillGrid />
+          </div>
+        </section>
+      </div>
+      <section id="footer" className="w-full">
+        <FooterSection />
+      </section>
+      <div className="fixed top-0 right-0 h-screen z-50">
+        <Navbar className="h-full" />
+      </div>
+    </div>
   );
 };
 

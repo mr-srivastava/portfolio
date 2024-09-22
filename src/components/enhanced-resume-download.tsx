@@ -4,43 +4,36 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { downloadFile } from "@/utils/fileDownload";
 
 interface DownloadButtonProps {
-  fileUrl: string;
   fileName: string;
+  label?: string;
 }
 
 export function EnhancedResumeDownload({
-  fileUrl,
   fileName,
+  label = "Get Resume",
 }: DownloadButtonProps) {
+  // State for hover and download status
   const [isHovered, setIsHovered] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
-  const downloadFile = useCallback(async () => {
+  // Handle the download process
+  const handleDownload = useCallback(async () => {
     setIsDownloading(true);
     try {
-      const response = await fetch(fileUrl);
-      if (!response.ok) throw new Error("Download failed");
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = fileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      await downloadFile(fileName);
     } catch (error) {
       console.error("Download error:", error);
+      // TODO: Consider adding user-facing error handling here
     } finally {
       setIsDownloading(false);
     }
-  }, [fileUrl, fileName]);
+  }, [fileName]);
 
   return (
-    <div className="flex items-center justify-cente lg:justify-start">
+    <div className="flex items-center justify-center lg:justify-start">
       <Button
         className={`
           relative overflow-hidden px-6 py-3 rounded-full
@@ -54,9 +47,10 @@ export function EnhancedResumeDownload({
         style={{ minWidth: "max-content" }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={downloadFile}
+        onClick={handleDownload}
         disabled={isDownloading}
       >
+        {/* Animated content for the button */}
         <AnimatePresence mode="wait">
           <motion.span
             key={isHovered ? "hovered" : "default"}
@@ -72,7 +66,7 @@ export function EnhancedResumeDownload({
                 Download
               </>
             ) : (
-              "Get Resume"
+              label
             )}
           </motion.span>
         </AnimatePresence>

@@ -1,17 +1,15 @@
 import { EnhancedResumeDownload } from "@/components/enhanced-resume-download";
-import { cn } from "@/lib/utils";
-import { IconDownload } from "@tabler/icons-react";
 import React from "react";
 
-export default function Overview(props: IOverviewProps) {
+export default function Overview({ yoe, description }: IOverView) {
   return (
-    <div className="p-10 lg:p-20 lg:py-40 min-h-screen flex flex-col lg:flex-row items-center justify-around gap-x-30">
-      <div>
+    <div className="p-10 lg:py-40 min-h-screen flex flex-col lg:flex-row items-center gap-x-32">
+      <div className="years-of-experience mb-20 lg:mb-0">
         <h3
           className="font-extrabold font-oswald tracking-[-10px] text-[250px] lg:text-[350px] relative text-accent leading-[1] text-[#0F172A]"
           style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
         >
-          {props.yoe}
+          {yoe}
         </h3>
         <span
           className="pl-[28px] w-full text-center lg:pl-[48px] underline decoration-accent/20 decoration-wavy text-[20px] -mt-2 inline-block font-[500] text-white"
@@ -20,9 +18,9 @@ export default function Overview(props: IOverviewProps) {
           years of experience
         </span>
       </div>
-      <div>
+      <div className="about-me">
         <div
-          className="font-display whitespace-nowrap text-center drop-shadow-sm text-white w-fit tracking-[-2px] text-6xl font-bold mb-4 mt-20 lg:mt-0 lg:mb-10"
+          className="font-display whitespace-nowrap text-center drop-shadow-sm text-white w-fit tracking-[-2px] text-6xl font-bold mb-4 lg:mb-10"
           style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
         >
           <div
@@ -36,33 +34,13 @@ export default function Overview(props: IOverviewProps) {
           </div>
         </div>
         <p className="text-white/95 font-light lg:font-medium leading-[26px] max-w-[500px] mb-10">
-          {props.description}
+          {description}
         </p>
         <EnhancedResumeDownload
-          fileName="Aadarsh Srivastava"
-          fileUrl={
-            "https://drive.google.com/file/d/1O-ektH6Td9vI9XVYpJMBoqoHq6Tt-mIs/view?usp=drive_link"
-          }
+          fileName="Aadarsh Srivastava.pdf"
+          label="Download Resume"
         />
       </div>
     </div>
   );
 }
-
-const GetResumeButton: React.FC<{}> = () => {
-  return (
-    <button
-      className={cn(
-        "px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden  max-w-[200px] mt-5",
-        "bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn"
-      )}
-    >
-      <span className="group-hover/modal-btn:translate-x-40 text-center transition duration-500">
-        Get Resume
-      </span>
-      <div className="-translate-x-40 group-hover/modal-btn:translate-x-0 flex items-center justify-center absolute inset-0 transition duration-500 z-20">
-        <IconDownload />
-      </div>
-    </button>
-  );
-};
