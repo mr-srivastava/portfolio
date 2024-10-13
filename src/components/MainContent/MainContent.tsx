@@ -8,7 +8,7 @@ const HeroSectionContent: IHeroContent = {
   preface: "Hello there,my name is",
   content: "Aadarsh Srivastava",
   followup: "I do all things web!",
-  src: "images/profile.jpg",
+  src: "https://ik.imagekit.io/9omfkfrhk/images/profile.jpg?updatedAt=1725622416485"
 };
 
 const OverviewContent: IOverView = {
