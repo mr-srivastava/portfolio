@@ -4,7 +4,7 @@ import MainContent from "../MainContent/MainContent";
 
 export default function Homepage() {
   return (
-    <div className="relative">
+    <div className='relative'>
       <MainContent />
     </div>
   );
