@@ -22,7 +22,9 @@ const experiences: Array<IExperience> = [
     startDate: 1711909800,
     endDate: null,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Led the Co-living Business Frontend Team, overseeing 5 developers to develop key features and enhancements for co-living and student housing platforms.",
+      "Spearheaded technology upgrades and performance optimizations to ensure seamless user experience and platform efficiency.",
+      "Achieved 50% total traffic growth and 17.5% organic traffic increase through demand optimization efforts."
     ],
     techStack: [
       Skills.React,
@@ -39,9 +41,7 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1680287400,
     endDate: 1711823400,
-    description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
-    ],
+    description: [],
     techStack: [
       Skills.React,
       Skills.Next,
@@ -57,9 +57,7 @@ const experiences: Array<IExperience> = [
     place: "India",
     startDate: 1656873000,
     endDate: 1680201000,
-    description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
-    ],
+    description: [],
     techStack: [
       Skills.React,
       Skills.Next,
@@ -76,7 +74,9 @@ const experiences: Array<IExperience> = [
     startDate: 1600021800,
     endDate: 1656441000,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Worked as a Full-stack developer on a critical PwC-wide platform that guides consultants through client engagement processes",
+      "Developed features to surface PwC standards and integrate with various internal systems",
+      "Collaborated with global teams to implement new features and enhance platform capabilities"
     ],
     techStack: [
       Skills.React,

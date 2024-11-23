@@ -25,4 +25,11 @@ function getDuration(startDate: number, endDate: number | null) {
   return durationParts.join(" ");
 }
 
+export const formatDate = (timestamp: number): string => {
+  return new Date(timestamp * 1000).toLocaleDateString('en-US', {
+    month: 'long',
+    year: 'numeric'
+  });
+};
+
 export { convertUnixTimestamp, getDuration };
