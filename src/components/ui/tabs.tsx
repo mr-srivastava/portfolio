@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { CompanyLogo } from "@/components/sections/Experience/CompanyLogo";
 
 type Tab = {
   title: string;
   value: string;
   content?: string | React.ReactNode | any;
+  logo?: string;
 };
 
 export const Tabs = ({
@@ -62,6 +64,7 @@ export const Tabs = ({
             onMouseLeave={() => setHovering(false)}
             className={cn(
               "relative px-6 py-3 rounded-lg whitespace-nowrap transition-colors duration-200",
+              "flex items-center gap-3 group",
               vertical ? "w-full text-left" : "",
               "hover:text-gray-900 dark:hover:text-white",
               active.value !== tab.value && "text-gray-600 dark:text-gray-400",
@@ -82,6 +85,18 @@ export const Tabs = ({
               />
             )}
 
+            {tab.logo && (
+              <div className={cn(
+                'relative w-10 h-10 rounded-full transition-colors duration-200 shadow-md flex items-center justify-center',
+                active.value === tab.value ? 'bg-white' : 'bg-white/75 group-hover:bg-white'
+              )}>
+                <CompanyLogo
+                  src={tab.logo}
+                  alt={`${tab.title} logo`}
+                  className='w-6 h-6'
+                />
+              </div>
+            )}
             <span className='relative block'>{tab.title}</span>
           </button>
         ))}

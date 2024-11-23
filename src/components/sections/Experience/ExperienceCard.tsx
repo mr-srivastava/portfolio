@@ -3,7 +3,6 @@ import {
   getAchievementsByCompany
 } from "@/utils/experience.utils";
 import { formatDate } from "@/utils/date.utils";
-import { CompanyLogo } from "./CompanyLogo";
 import { TechStack } from "./TechStack";
 import { Achievements } from "./Achievements";
 
@@ -41,7 +40,6 @@ export function ExperienceCard({ company, bgColor }: ExperienceCardProps) {
           <TechStack skills={skills} />
         </div>
       </div>
-      <CompanyLogo src={`/${company.id}.svg`} alt={`${company.company} logo`} />
     </div>
   );
 }
