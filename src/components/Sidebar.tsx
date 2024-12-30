@@ -67,7 +67,7 @@ export const Navigation = ({
           href={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={cn(
-            "text-secondary-900 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
+            "font-heading text-secondary-900 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
             isActive(link.href) && "bg-primary-900 shadow-lg text-primary-50",
             "hover:bg-primary-800 hover:text-primary-50"
           )}
@@ -90,7 +90,7 @@ export const Navigation = ({
           key={link.href}
           href={link.href}
           className={cn(
-            "text-secondary-900 hover:text-primary-900 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
+            "font-body text-secondary-900 hover:text-primary-900 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
         >
           <link.icon
@@ -117,8 +117,8 @@ const SidebarHeader = () => {
         className="object-cover object-top rounded-full flex-shrink-0"
       />
       <div className="flex text-sm flex-col">
-        <p className="font-bold text-primary-950">Aadarsh Srivastava</p>
-        <p className="font-light text-secondary-950">Developer</p>
+        <p className="font-normal font-heading text-primary-950">Aadarsh Srivastava</p>
+        <p className="font-light font-body text-secondary-950">Developer</p>
       </div>
     </div>
   );

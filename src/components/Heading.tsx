@@ -13,7 +13,7 @@ export const Heading = ({
   return (
     <Tag
       className={twMerge(
-        "text-base md:text-xl lg:text-4xl font-semibold bg-clip-text text-primary-950 bg-gradient-to-r from-primary-950 to-secondary-950",
+        "font-heading text-base md:text-xl lg:text-4xl font-semibold bg-clip-text text-primary-950 bg-gradient-to-r from-primary-950 to-secondary-950",
         className
       )}
     >

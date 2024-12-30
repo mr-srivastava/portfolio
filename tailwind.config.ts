@@ -87,8 +87,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ["Gugi", "sans-serif"],
-        body: ["New Tegomin", "serif"],
+        heading: ["var(--font-gugi)", "sans-serif"],
+        body: ["var(--font-new-tegomin)", "serif"],
       },
     },
   },
