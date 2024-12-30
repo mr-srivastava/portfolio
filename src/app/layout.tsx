@@ -3,19 +3,19 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { cn } from "@/lib/utils";
-import { Gugi, New_Tegomin } from "next/font/google";
+import { Montserrat, Poppins } from "next/font/google";
 
 // Load the fonts
-const gugi = Gugi({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: "400", // Adjust weights if necessary
-  variable: "--font-gugi", // Define a custom CSS variable
+  variable: "--font-montserrat", // Define a custom CSS variable
 });
 
-const newTegomin = New_Tegomin({
+const poppins = Poppins({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-new-tegomin",
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("", gugi.variable, newTegomin.variable)}>
+    <html lang="en" className={cn("", montserrat.variable, poppins.variable)}>
       <body
         className={cn(
           "flex antialiased h-screen overflow-hidden bg-background-50"
