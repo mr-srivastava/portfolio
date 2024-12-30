@@ -1,19 +1,24 @@
 /** @type {import('next').NextConfig} */
+import nextMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import rehypePrism from "@mapbox/rehype-prism";
+
 const nextConfig = {
-  reactStrictMode: true,
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    domains: ["ik.imagekit.io", "assets.aceternity.com"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "ik.imagekit.io",
-        port: "",
-      },
-    ],
+    domains: ["images.unsplash.com", "res.cloudinary.com"],
   },
   experimental: {
-    optimizePackageImports: ["@tabler/icons-react"],
+    mdxRs: true,
   },
 };
 
-export default nextConfig;
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism],
+  },
+});
+
+export default withMDX(nextConfig);
