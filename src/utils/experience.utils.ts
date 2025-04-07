@@ -2,7 +2,7 @@ import { IExperience } from "@/components/sections/WorkEx/types";
 
 enum Companies {
   Zolo = "Zolo",
-  PwCIndia = "PwC India"
+  PwCIndia = "PwC India",
 }
 
 enum Skills {
@@ -11,7 +11,7 @@ enum Skills {
   Javascript = "Javascript",
   Typescript = "Typescript",
   Redux = "Redux",
-  Node = "Node"
+  Node = "Node",
 }
 
 const experiences: Array<IExperience> = [
@@ -22,7 +22,7 @@ const experiences: Array<IExperience> = [
     startDate: 1711909800,
     endDate: null,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     ],
     techStack: [
       Skills.React,
@@ -30,8 +30,8 @@ const experiences: Array<IExperience> = [
       Skills.Javascript,
       Skills.Typescript,
       Skills.Redux,
-      Skills.Node
-    ]
+      Skills.Node,
+    ],
   },
   {
     position: "Sr. Software Engineer I",
@@ -40,7 +40,7 @@ const experiences: Array<IExperience> = [
     startDate: 1680287400,
     endDate: 1711823400,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     ],
     techStack: [
       Skills.React,
@@ -48,8 +48,8 @@ const experiences: Array<IExperience> = [
       Skills.Javascript,
       Skills.Typescript,
       Skills.Redux,
-      Skills.Node
-    ]
+      Skills.Node,
+    ],
   },
   {
     position: "Software Development Engineer II",
@@ -58,7 +58,7 @@ const experiences: Array<IExperience> = [
     startDate: 1656873000,
     endDate: 1680201000,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     ],
     techStack: [
       Skills.React,
@@ -66,8 +66,8 @@ const experiences: Array<IExperience> = [
       Skills.Javascript,
       Skills.Typescript,
       Skills.Redux,
-      Skills.Node
-    ]
+      Skills.Node,
+    ],
   },
   {
     position: "Associate, Technology Consulting",
@@ -76,7 +76,7 @@ const experiences: Array<IExperience> = [
     startDate: 1600021800,
     endDate: 1656441000,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch"
+      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
     ],
     techStack: [
       Skills.React,
@@ -84,25 +84,29 @@ const experiences: Array<IExperience> = [
       Skills.Javascript,
       Skills.Typescript,
       Skills.Redux,
-      Skills.Node
-    ]
-  }
+      Skills.Node,
+    ],
+  },
 ];
 
-const getCompanyTimePeriod = (company: keyof typeof Companies) => {
-  const companyStartDate = Math.min(
-    ...getExperiencesByCompany(company).map((exp) => exp.startDate)
-  );
-  const isStillAtCompany = getExperiencesByCompany(company).some(
+const getCompanyTimePeriod = (
+  company: string,
+  companyExperiences?: IExperience[]
+) => {
+  if (!companyExperiences) {
+    companyExperiences = getExperiencesByCompany(company);
+  }
+  const startDateMap = companyExperiences.map((exp) => exp.startDate);
+
+  const companyStartDate = Math.min(...startDateMap);
+
+  const isStillAtCompany = companyExperiences.some(
     (exp) => exp.endDate === null
   );
+
   const companyEndDate = isStillAtCompany
     ? null
-    : Math.max(
-        ...getExperiencesByCompany(company).map(
-          (exp) => exp.endDate || Date.now()
-        )
-      );
+    : Math.max(...companyExperiences.map((exp) => exp.endDate || Date.now()));
 
   return { companyStartDate, companyEndDate };
 };
@@ -115,17 +119,15 @@ const getExperienceTimelineData = () => {
       id: company,
       company: Companies[company],
       positions: getExperiencesByCompany(company),
-      ...getCompanyTimePeriod(company)
+      ...getCompanyTimePeriod(company),
     };
     return companyHistory;
   });
   return experienceTimelineData;
 };
 
-const getExperiencesByCompany = (company: keyof typeof Companies) => {
-  return experiences.filter(
-    (experience) => experience.company === Companies[company]
-  );
+const getExperiencesByCompany = (company: string) => {
+  return experiences.filter((experience) => experience.company === company);
 };
 
 const getSkillsByCompany = (company: keyof typeof Companies) => {
@@ -147,7 +149,8 @@ const getAchievementsByCompany = (company: keyof typeof Companies) => {
 export {
   Companies,
   getExperienceTimelineData,
+  getExperiencesByCompany,
   getCompanyTimePeriod,
   getSkillsByCompany,
-  getAchievementsByCompany
+  getAchievementsByCompany,
 };

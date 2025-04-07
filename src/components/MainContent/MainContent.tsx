@@ -1,35 +1,23 @@
-"use client";
 import React from "react";
 import {
   FooterSection,
   HeroSection,
   Overview,
   SkillGrid,
-  WorkExSection
+  WorkExSection,
 } from "../sections";
 
-import { IHeroContent } from "../sections/Hero/types";
+import { heroSectionQuery, overviewQuery } from "@/sanity/lib/queries";
+import { client } from "@/sanity/lib/client";
 
-const HeroSectionContent: IHeroContent = {
-  preface: "Hello there,my name is",
-  content: "Aadarsh Srivastava",
-  followup: "I do all things web!",
-  src: "https://ik.imagekit.io/9omfkfrhk/images/profile.jpg?updatedAt=1725622416485"
-};
+const MainContent = async () => {
+  const hero = await client.fetch(heroSectionQuery);
+  const overview = await client.fetch(overviewQuery);
 
-const OverviewContent: IOverView = {
-  yoe: "04",
-  description: `Hey, I'm Aadarsh Srivastava. I started as a software engineer back in 2020, working with PwC India.
-  I'm currently working at Zolo as Senior Software Engineer. Before that, I was a Full Stack Developer at PwC India for Concourse. I'm originally from Ranchi, India and now living in Bangalore, India.
-  I love to explore web and software development. When I'm not working, I am mostly watching YouTube.`
-};
-
-// Dummy dashboard component with content
-const MainContent = () => {
   return (
     <>
-      <HeroSection heroContent={HeroSectionContent} />
-      <Overview {...OverviewContent} />
+      <HeroSection heroContent={hero} />
+      <Overview {...overview} />
       <WorkExSection />
       <SkillGrid />
       <FooterSection />
