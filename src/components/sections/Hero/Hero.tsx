@@ -1,4 +1,4 @@
-"use client";
+
 import React from "react";
 import { Boxes } from "@/components/ui/background-boxes";
 import HeroContent from "./Content";

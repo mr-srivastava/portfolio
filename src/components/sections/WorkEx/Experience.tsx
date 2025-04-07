@@ -22,7 +22,7 @@ interface IExperienceProps {
   startDate: number;
   endDate: number | null;
   company: string;
-  id: keyof typeof Companies;
+  id: string;
 }
 const Experience: React.FC<IExperienceProps> = (props) => {
   return (
