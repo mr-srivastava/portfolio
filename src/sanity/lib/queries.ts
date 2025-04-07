@@ -19,3 +19,9 @@ export const experiencesQuery = `*[_type == "experience"] | order(startDate desc
     description,
     techStack
   }`;
+
+export const skillsQuery = `*[_type == "skill"] | order(title asc) {
+    title,
+    description,
+    iconKey
+  }`;

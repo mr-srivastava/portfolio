@@ -2,6 +2,7 @@ interface ISkill {
   title: string;
   description?: string;
   icon: React.ReactNode;
+  iconKey: string;
 }
 
 interface ISkillGridItem extends ISkill {
