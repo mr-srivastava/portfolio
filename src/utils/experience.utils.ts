@@ -91,8 +91,11 @@ const experiences: Array<IExperience> = [
 
 const getCompanyTimePeriod = (
   company: string,
-  companyExperiences: IExperience[]
+  companyExperiences?: IExperience[]
 ) => {
+  if (!companyExperiences) {
+    companyExperiences = getExperiencesByCompany(company);
+  }
   const startDateMap = companyExperiences.map((exp) => exp.startDate);
 
   const companyStartDate = Math.min(...startDateMap);
