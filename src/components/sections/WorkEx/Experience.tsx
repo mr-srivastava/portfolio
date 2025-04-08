@@ -1,20 +1,20 @@
-import React from "react";
-import { IExperience } from "./types";
-import PositionExperience from "./Position";
-import { IconCircleCheckFilled } from "@tabler/icons-react";
+import React from 'react';
+import { IExperience } from './types';
+import PositionExperience from './Position';
+import { IconCircleCheckFilled } from '@tabler/icons-react';
 import {
   Companies,
   convertUnixTimestamp,
   getAchievementsByCompany,
   getDuration,
-  getSkillsByCompany
-} from "@/utils";
-import Image from "next/image";
+  getSkillsByCompany,
+} from '@/utils';
+import Image from 'next/image';
 
-const SKILLS = ["React", "Next", "Javascript", "Typescript", "Redux", "Node"];
+const SKILLS = ['React', 'Next', 'Javascript', 'Typescript', 'Redux', 'Node'];
 const ACHIEVELEMENTS = [
-  "Reduced API response time by 60%",
-  "Implemented CI/CD pipeline, cutting deployment time by 75%"
+  'Reduced API response time by 60%',
+  'Implemented CI/CD pipeline, cutting deployment time by 75%',
 ];
 
 interface IExperienceProps {
@@ -26,17 +26,15 @@ interface IExperienceProps {
 }
 const Experience: React.FC<IExperienceProps> = (props) => {
   return (
-    <div className=' rounded-lg shadow-sm shadow-slate-300 bg-[#0F172A] p-[14px] lg:p-6 max-w-[600px] mx-auto'>
+    <div className=' rounded-lg shadow-sm shadow-slate-300 lg:p-6 max-w-[600px] mx-auto'>
       <div className='flex justify-between items-center mb-4'>
         <div>
-          <h2 className='text-[20px] lg:text-2xl font-bold text-grey-200'>
-            {props.company}
-          </h2>
+          <h2 className='text-[20px] lg:text-2xl font-bold text-grey-200'>{props.company}</h2>
 
           <p className='text-[12px] lg:text-sm text-gray-300'>
             <span>
-              {convertUnixTimestamp(props.startDate)} -{" "}
-              {props.endDate ? convertUnixTimestamp(props.endDate) : "Present"}
+              {convertUnixTimestamp(props.startDate)} -{' '}
+              {props.endDate ? convertUnixTimestamp(props.endDate) : 'Present'}
             </span>
             <span>&nbsp;&nbsp;&#x2022;&nbsp;&nbsp;</span>
             <span>{getDuration(props.startDate, props.endDate)}</span>

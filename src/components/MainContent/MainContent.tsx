@@ -1,14 +1,9 @@
-import React from "react";
-import {
-  FooterSection,
-  HeroSection,
-  Overview,
-  SkillGrid,
-  WorkExSection,
-} from "../sections";
+import React from 'react';
+import { FooterSection, HeroSection, Overview, SkillGrid, WorkExSection } from '../sections';
 
-import { heroSectionQuery, overviewQuery } from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client";
+import { heroSectionQuery, overviewQuery } from '@/sanity/lib/queries';
+import { client } from '@/sanity/lib/client';
+import Navbar from '../NavBar/Navbar';
 
 const MainContent = async () => {
   const hero = await client.fetch(heroSectionQuery);
@@ -16,6 +11,7 @@ const MainContent = async () => {
 
   return (
     <>
+      <Navbar />
       <HeroSection heroContent={hero} />
       <Overview {...overview} />
       <WorkExSection />
