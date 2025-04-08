@@ -14,8 +14,8 @@ const MainContent = async () => {
       <Navbar />
       <HeroSection heroContent={hero} />
       <Overview {...overview} />
-      <WorkExSection />
       <SkillGrid />
+      <WorkExSection />
       <FooterSection />
     </>
   );
