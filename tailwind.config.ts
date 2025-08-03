@@ -76,6 +76,18 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Blueprint Colors
+        "blueprint-primary": "hsl(var(--blueprint-primary))",
+        "blueprint-secondary": "hsl(var(--blueprint-secondary))",
+        "blueprint-accent": "hsl(var(--blueprint-accent))",
+        "blueprint-muted": "hsl(var(--blueprint-muted))",
+        "blueprint-grid": "hsl(var(--blueprint-grid))",
+        "blueprint-line": "hsl(var(--blueprint-line))",
+        // Status Colors
+        "status-online": "hsl(var(--status-online))",
+        "status-warning": "hsl(var(--status-warning))",
+        "status-error": "hsl(var(--status-error))",
+        "status-inactive": "hsl(var(--status-inactive))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -95,6 +107,11 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        "blueprint": "var(--shadow-blueprint)",
+        "glow": "var(--shadow-glow)",
+        "subtle": "var(--shadow-subtle)",
       },
     },
   },
