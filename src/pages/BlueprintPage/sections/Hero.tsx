@@ -133,27 +133,29 @@ interface HeroProps {
   data: HeroData;
 }
 
-export const Hero = ({ data }: HeroProps) => (
-  <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-    <CircuitPattern />
+export default function Hero({ data }: HeroProps) {
+  return (
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <CircuitPattern />
 
-    <div className="container mx-auto px-6 text-center z-10">
-      <div className="space-y-8">
-        <StatusIndicator
-          isOnline={data.status.isOnline}
-          message={data.status.message}
-        />
-        <MainHeading name={data.name} />
+      <div className="container mx-auto px-6 text-center z-10">
+        <div className="space-y-8">
+          <StatusIndicator
+            isOnline={data.status.isOnline}
+            message={data.status.message}
+          />
+          <MainHeading name={data.name} />
 
-        <p className="text-xl md:text-2xl text-blueprint-muted font-mono font-medium">
-          {data.role}
-        </p>
+          <p className="text-xl md:text-2xl text-blueprint-muted font-mono font-medium">
+            {data.role}
+          </p>
 
-        <TechStackIcons techStack={data.techStack} />
-        <CTAButton />
+          <TechStackIcons techStack={data.techStack} />
+          <CTAButton />
+        </div>
       </div>
-    </div>
 
-    <ScrollIndicator />
-  </section>
-);
+      <ScrollIndicator />
+    </section>
+  );
+}

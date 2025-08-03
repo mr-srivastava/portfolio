@@ -1,11 +1,11 @@
-import { Hero } from "./sections/Hero";
-import { Projects } from "./sections/Projects";
-import { TechStack } from "./sections/TechStack";
-import { Contact } from "./sections/Contact";
-import { GridBackground } from "./components/GridBackground";
+import Hero from "./sections/Hero";
+import Projects from "./sections/Projects";
+import TechStack from "./sections/TechStack";
+import Contact from "./sections/Contact";
+import GridBackground from "./components/GridBackground";
 import { blueprintData } from "../../app/blueprint/data";
 
-export const BlueprintPage = () => {
+export default function BlueprintPage() {
   return (
     <div className="min-h-screen bg-background text-foreground relative">
       <GridBackground />
@@ -18,6 +18,4 @@ export const BlueprintPage = () => {
       <Contact data={blueprintData.contact} />
     </div>
   );
-};
-
-export default BlueprintPage;
+}
