@@ -1,10 +1,11 @@
 import React from 'react';
-import WorkTimeline from './WorkTimeline';
+import { ProjectCard } from './ProjectCard';
+import { projectsData } from './projectsData';
 
-export default function WorkEx() {
+export default function Projects() {
   return (
     <div
-      id='experience'
+      id='projects'
       className='w-full p-10 lg:p-24 flex flex-col items-center justify-center'
     >
       <div
@@ -18,10 +19,15 @@ export default function WorkEx() {
             display: 'inline-block',
           }}
         >
-          Experience
+          Projects
         </div>
       </div>
-      <WorkTimeline />
+
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl'>
+        {projectsData.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import {
   FooterSection,
   HeroSection,
   Overview,
+  Projects,
   SkillGrid,
   WorkExSection,
 } from '../sections';
@@ -20,6 +21,7 @@ const MainContent = async () => {
       <Navbar />
       <HeroSection heroContent={hero} />
       <Overview {...overview} />
+      <Projects />
       <WorkExSection />
       <SkillGrid />
       <FooterSection />
