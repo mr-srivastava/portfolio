@@ -1,3 +1,3 @@
-import HeroSection from "./Hero";
+import HeroSection from './Hero';
 
 export { HeroSection };

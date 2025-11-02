@@ -1,3 +1,3 @@
-import SkillGrid from "./Skills";
+import SkillGrid from './Skills';
 
 export { SkillGrid };

@@ -9,7 +9,6 @@
     "lint": "next lint",
     "migrate:blueprint": "tsx scripts/migrate-blueprint-data.ts",
     "validate:blueprint": "tsx scripts/validate-blueprint-data.ts",
-    "test:migration": "tsx scripts/test-migration.ts",
     "test:connection": "tsx scripts/test-connection.ts",
     "setup:migration": "tsx scripts/setup-migration.ts"
   },

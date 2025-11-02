@@ -10,7 +10,7 @@ export default function HeroContent(props: IHeroContentProps) {
       <div
         className={cn(
           'hero-content w-[80%] flex flex-col-reverse lg:flex-row items-center justify-evenly gap-20',
-          props.className,
+          props.className
         )}
       >
         <section>

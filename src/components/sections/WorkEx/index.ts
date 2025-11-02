@@ -1,3 +1,3 @@
-import WorkExSection from "./WorkEx";
+import WorkExSection from './WorkEx';
 
 export { WorkExSection };

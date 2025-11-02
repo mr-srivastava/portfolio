@@ -1,28 +1,28 @@
-import { IExperience } from "@/components/sections/WorkEx/types";
+import { IExperience } from '@/components/sections/WorkEx/types';
 
 enum Companies {
-  Zolo = "Zolo",
-  PwCIndia = "PwC India",
+  Zolo = 'Zolo',
+  PwCIndia = 'PwC India',
 }
 
 enum Skills {
-  React = "React",
-  Next = "Next",
-  Javascript = "Javascript",
-  Typescript = "Typescript",
-  Redux = "Redux",
-  Node = "Node",
+  React = 'React',
+  Next = 'Next',
+  Javascript = 'Javascript',
+  Typescript = 'Typescript',
+  Redux = 'Redux',
+  Node = 'Node',
 }
 
 const experiences: Array<IExperience> = [
   {
-    position: "Sr. Software Engineer II",
+    position: 'Sr. Software Engineer II',
     company: Companies.Zolo,
-    place: "India",
+    place: 'India',
     startDate: 1711909800,
     endDate: null,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
+      'Built and launched Aceternity UI and Aceternity UI Pro from scratch',
     ],
     techStack: [
       Skills.React,
@@ -34,13 +34,13 @@ const experiences: Array<IExperience> = [
     ],
   },
   {
-    position: "Sr. Software Engineer I",
+    position: 'Sr. Software Engineer I',
     company: Companies.Zolo,
-    place: "India",
+    place: 'India',
     startDate: 1680287400,
     endDate: 1711823400,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
+      'Built and launched Aceternity UI and Aceternity UI Pro from scratch',
     ],
     techStack: [
       Skills.React,
@@ -52,13 +52,13 @@ const experiences: Array<IExperience> = [
     ],
   },
   {
-    position: "Software Development Engineer II",
+    position: 'Software Development Engineer II',
     company: Companies.Zolo,
-    place: "India",
+    place: 'India',
     startDate: 1656873000,
     endDate: 1680201000,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
+      'Built and launched Aceternity UI and Aceternity UI Pro from scratch',
     ],
     techStack: [
       Skills.React,
@@ -70,13 +70,13 @@ const experiences: Array<IExperience> = [
     ],
   },
   {
-    position: "Associate, Technology Consulting",
+    position: 'Associate, Technology Consulting',
     company: Companies.PwCIndia,
-    place: "India",
+    place: 'India',
     startDate: 1600021800,
     endDate: 1656441000,
     description: [
-      "Built and launched Aceternity UI and Aceternity UI Pro from scratch",
+      'Built and launched Aceternity UI and Aceternity UI Pro from scratch',
     ],
     techStack: [
       Skills.React,
@@ -104,9 +104,10 @@ const getCompanyTimePeriod = (
     (exp) => exp.endDate === null
   );
 
-  const companyEndDate = isStillAtCompany
-    ? null
-    : Math.max(...companyExperiences.map((exp) => exp.endDate || Date.now()));
+  const companyEndDate =
+    isStillAtCompany ? null : (
+      Math.max(...companyExperiences.map((exp) => exp.endDate || Date.now()))
+    );
 
   return { companyStartDate, companyEndDate };
 };

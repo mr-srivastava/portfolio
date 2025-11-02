@@ -49,7 +49,8 @@ export function Footer() {
           </nav>
           <div className='text-center'>
             <p className='text-sm text-white/70'>
-              © {new Date().getFullYear()} Aadarsh Srivastava. All rights reserved.
+              © {new Date().getFullYear()} Aadarsh Srivastava. All rights
+              reserved.
             </p>
           </div>
         </div>

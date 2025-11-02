@@ -1,11 +1,13 @@
-import { Timeline } from "@/components/ui/timeline";
-import React from "react";
-import Experience from "./Experience";
-import { getCompanyTimePeriod } from "@/utils";
-import { client } from "@/sanity/lib/client";
-import { experiencesQuery } from "@/sanity/lib/queries";
+import { Timeline } from '@/components/ui/timeline';
+import React from 'react';
+import Experience from './Experience';
+import { getCompanyTimePeriod } from '@/utils';
+import { client } from '@/sanity/lib/client';
+import { experiencesQuery } from '@/sanity/lib/queries';
 
-const getExperienceTimelineData = async (debug=false): Promise<
+const getExperienceTimelineData = async (
+  debug = false
+): Promise<
   Array<{
     id: string;
     company: string;
@@ -15,14 +17,14 @@ const getExperienceTimelineData = async (debug=false): Promise<
   }>
 > => {
   const experiences = await client.fetch(experiencesQuery);
-  debug && console.log("Experiences", experiences);
+  debug && console.log('Experiences', experiences);
 
   //find unique companies from experiences
   const companies = experiences.map(
     (experience: { company: any }) => experience.company
   );
   const uniqueCompanies: string[] = Array.from(new Set(companies));
-  debug && console.log("Unique Companies", uniqueCompanies);
+  debug && console.log('Unique Companies', uniqueCompanies);
 
   const experienceTimelineData = uniqueCompanies.map((company: string) => {
     const positions = experiences.filter(
@@ -36,7 +38,7 @@ const getExperienceTimelineData = async (debug=false): Promise<
     };
     return companyHistory;
   });
-  debug && console.log("Experience Timeline Data", experienceTimelineData);
+  debug && console.log('Experience Timeline Data', experienceTimelineData);
   return experienceTimelineData;
 };
 
@@ -57,7 +59,7 @@ export default async function WorkTimeline() {
     };
   });
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <Timeline data={TimelineChild} />
     </div>
   );

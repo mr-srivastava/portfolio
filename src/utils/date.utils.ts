@@ -1,8 +1,8 @@
-import { format, differenceInMonths, differenceInYears } from "date-fns";
+import { format, differenceInMonths, differenceInYears } from 'date-fns';
 
 function convertUnixTimestamp(
   unixTimestamp: number,
-  desiredFormat: string = "MMM yyyy"
+  desiredFormat: string = 'MMM yyyy'
 ): string {
   const date = new Date(unixTimestamp * 1000);
   return format(date, desiredFormat);
@@ -16,13 +16,13 @@ function getDuration(startDate: number, endDate: number | null) {
 
   const durationParts: string[] = [];
   if (years > 0) {
-    durationParts.push(`${years} year${years !== 1 ? "s" : ""}`);
+    durationParts.push(`${years} year${years !== 1 ? 's' : ''}`);
   }
   if (months > 0) {
-    durationParts.push(`${months} month${months !== 1 ? "s" : ""}`);
+    durationParts.push(`${months} month${months !== 1 ? 's' : ''}`);
   }
 
-  return durationParts.join(" ");
+  return durationParts.join(' ');
 }
 
 export { convertUnixTimestamp, getDuration };

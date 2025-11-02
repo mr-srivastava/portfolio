@@ -51,7 +51,7 @@ const GetResumeButton: React.FC<{}> = () => {
     <button
       className={cn(
         'px-4 py-2 rounded-md text-black dark:text-white text-center relative overflow-hidden  max-w-[200px] mt-5',
-        'bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn',
+        'bg-black dark:bg-white dark:text-black text-white flex justify-center group/modal-btn'
       )}
     >
       <span className='group-hover/modal-btn:translate-x-40 text-center transition duration-500'>

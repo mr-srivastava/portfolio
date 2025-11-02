@@ -28,8 +28,8 @@ const Navbar = () => {
   const navLinks = [
     { title: 'Home', href: '/' },
     { title: 'About', href: '/#about' },
-    { title: 'Skills', href: '/#skills' },
     { title: 'Experience', href: '/#experience' },
+    { title: 'Skills', href: '/#skills' },
     // { title: 'Projects', href: '/#projects' },
     // { title: 'Contact', href: '/#contact' },
   ];
@@ -37,7 +37,9 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-black/60 backdrop-blur-md border-b border-white/5' : 'bg-black'
+        scrolled ?
+          'bg-black/60 backdrop-blur-md border-b border-white/5'
+        : 'bg-black'
       }`}
     >
       <div className='container mx-auto px-4 md:px-6'>
@@ -80,7 +82,9 @@ const Navbar = () => {
             onClick={toggleMenu}
             aria-label='Toggle menu'
           >
-            {isMenuOpen ? <IconCross size={24} /> : <IconMenu size={24} />}
+            {isMenuOpen ?
+              <IconCross size={24} />
+            : <IconMenu size={24} />}
           </button>
         </div>
       </div>
