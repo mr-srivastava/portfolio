@@ -1,5 +1,11 @@
 import React from 'react';
-import { FooterSection, HeroSection, Overview, SkillGrid, WorkExSection } from '../sections';
+import {
+  FooterSection,
+  HeroSection,
+  Overview,
+  SkillGrid,
+  WorkExSection,
+} from '../sections';
 
 import { heroSectionQuery, overviewQuery } from '@/sanity/lib/queries';
 import { client } from '@/sanity/lib/client';
@@ -14,8 +20,8 @@ const MainContent = async () => {
       <Navbar />
       <HeroSection heroContent={hero} />
       <Overview {...overview} />
-      <SkillGrid />
       <WorkExSection />
+      <SkillGrid />
       <FooterSection />
     </>
   );

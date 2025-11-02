@@ -25,11 +25,14 @@ interface IExperienceProps {
   id: string;
 }
 const Experience: React.FC<IExperienceProps> = (props) => {
+  const companyLogoUrl = `${props.id.replaceAll(' ', '')}.svg`;
   return (
     <div className=' rounded-lg shadow-sm shadow-slate-300 lg:p-6 max-w-[600px] mx-auto'>
       <div className='flex justify-between items-center mb-4'>
         <div>
-          <h2 className='text-[20px] lg:text-2xl font-bold text-grey-200'>{props.company}</h2>
+          <h2 className='text-[20px] lg:text-2xl font-bold text-grey-200'>
+            {props.company}
+          </h2>
 
           <p className='text-[12px] lg:text-sm text-gray-300'>
             <span>
@@ -41,7 +44,7 @@ const Experience: React.FC<IExperienceProps> = (props) => {
           </p>
         </div>
         <div className='hidden w-20 h-20 rounded-full bg-gray-100 lg:flex items-center justify-center'>
-          <Image src={`${props.id}.svg`} alt='pwc' width={50} height={50} />
+          <Image src={companyLogoUrl} alt='pwc' width={50} height={50} />
         </div>
       </div>
       <div className=''>
